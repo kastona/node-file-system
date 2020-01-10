@@ -1,3 +1,4 @@
-const name = require('./app-files/util.js');
+const getNotes = require('./app-files/notes');
 
-console.log(name);
+
+console.log(getNotes());
