@@ -1,5 +1,3 @@
-const fs = require('fs');
+const name = require('./app-files/util.js');
 
-// fs.writeFileSync('note.txt', 'anything to appear');
-
-fs.appendFileSync('note.txt', '. An appended text')
+console.log(name);
