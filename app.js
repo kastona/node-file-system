@@ -1,12 +1,10 @@
-const getEmail = require('./app-files/notes');
-const validator = require('validator')
-const chalk = require('chalk')
 
+const argument = process.argv[2]
 
-const email = 'stephenkastona@gmail.com'
-
-if(validator.isEmail(email)) {
-    console.log(chalk.green('you entered a correct email!'))
+if(argument === 'add') {
+    console.log('do some addition here')
+} else  if(argument === 'subtract') {
+    console.log('do some subtraction here')
 } else {
-    console.log(chalk.red('This is not an email!'))
+    console.log('I can\'t do anything here')
 }
