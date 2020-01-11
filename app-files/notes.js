@@ -1,5 +1,5 @@
-const getNotes = function () {
-    return 'my notes!';
+const getEmail = function () {
+    return 'me@email.com';
 }
 
-module.exports = getNotes
+module.exports = getEmail
