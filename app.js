@@ -3,7 +3,7 @@ const validator = require('validator')
 const chalk = require('chalk')
 
 
-const email = 'stephenkastonagmail.com'
+const email = 'stephenkastona@gmail.com'
 
 if(validator.isEmail(email)) {
     console.log(chalk.green('you entered a correct email!'))
