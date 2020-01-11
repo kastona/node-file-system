@@ -1,5 +1,7 @@
-
+const fs = require('fs')
 const yargs = require('yargs')
+const notes = require('./app-files/notes')
+
 
 yargs.command({
     command: 'add',
@@ -17,8 +19,7 @@ yargs.command({
         }
     },
     handler: function(argv) {
-        console.log(`Adding note with title ${argv.title}`);
-        console.log(`Body: ${argv.body}`)
+        notes.addNote(argv.title, argv.body);
     }
 })
 
@@ -49,8 +50,27 @@ yargs.command({
 yargs.command({
     command: 'read',
     describe: 'reads notes out loud',
-    handler: function() {
-        console.log('reading notes')
+    builder: {
+        n: {
+            describe: 'number of notes to read',
+            type: 'int',
+            demandOption: false
+        }
+    },
+    handler: function(argv) {
+        
+        if(argv.n) {
+            console.log(`Reading first ${argv.n} notes`)
+        } else {
+            console.log('Reading all notes')
+        }
+
+        const dataString = fs.readFileSync('note.json').toString();
+
+        const dataObject = JSON.parse(dataString);
+
+        console.log(dataObject.title);
+        console.log(dataObject.body);
     }
 })
 
